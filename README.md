@@ -38,7 +38,7 @@ Swipe through cards like this 👇
 ---
 
 ## 📂 Project Structure
-
+```bash
 com.zatswahm.swipepager/
 │
 ├── data/
@@ -54,6 +54,7 @@ com.zatswahm.swipepager/
 └── res/layout/
 ├── activity_main.xml
 └── item_question.xml
+```
 
 
 ---
