@@ -63,7 +63,7 @@ com.zatswahm.swipepager/
 
 1️⃣ Clone the repo  
 ```bash
-git clone https://github.com/yourusername/SwipePager.git
+git clone https://github.com/GmdDev074/swipepager_card_stack
 ```
 
 2️⃣ Open project in Android Studio
