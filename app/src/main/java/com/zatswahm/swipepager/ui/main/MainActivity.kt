@@ -102,7 +102,6 @@ class MainActivity : AppCompatActivity() {
         binding.viewPager.apply {
             clipChildren = false
             clipToPadding = false
-            isUserInputEnabled = false  // Disable ViewPager2 touch to let ItemTouchHelper handle all directions
             getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
         }
 
@@ -116,8 +115,8 @@ class MainActivity : AppCompatActivity() {
                 page.scaleY = scale
                 page.scaleX = scale
                 page.alpha = 0.4f + (1 - absPos) * 0.6f
-                page.translationX = -position * page.width * 0.25f  // Increased for more overlap/peeking
-                page.elevation = (1 - absPos) * 18 * density  // Dynamic elevation for "elevated on them" effect with shadows
+                page.translationX = -position * page.width * 0.15f  // Increased for more overlap/peeking
+                page.elevation = (1 - absPos) * 28 * density  // Dynamic elevation for "elevated on them" effect with shadows
             }
         }
 
@@ -136,21 +135,10 @@ class MainActivity : AppCompatActivity() {
             sortedIndices[i]
         }
 
-        // Set up ItemTouchHelper for all directions
-        val helper = ItemTouchHelper(SwipeTouchHelper { position, dir ->
-            if (dir == ItemTouchHelper.LEFT || dir == ItemTouchHelper.RIGHT) {
-                // Page change for horizontal full swipes
-                val next = if (dir == ItemTouchHelper.LEFT) {
-                    binding.viewPager.currentItem + 1
-                } else {
-                    binding.viewPager.currentItem - 1
-                }
-                binding.viewPager.setCurrentItem(next.coerceIn(0, adapter.itemCount - 1), true)
-            } else {
-                // Snap back for vertical full swipes
-                val vh = rv.findViewHolderForAdapterPosition(position)
-                vh?.itemView?.animate()?.translationX(0f)?.translationY(0f)?.setDuration(200)?.start()
-            }
+        // ✅ Keep swipe → but DO NOT remove card anymore
+        val helper = ItemTouchHelper(SwipeTouchHelper { position ->
+            val next = (binding.viewPager.currentItem + 1).coerceAtMost(adapter.itemCount - 1)
+            binding.viewPager.setCurrentItem(next, true)
         })
         helper.attachToRecyclerView(rv)
     }
