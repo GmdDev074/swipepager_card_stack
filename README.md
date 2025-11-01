@@ -99,6 +99,8 @@ Feel free to star ⭐ the repo if you found it useful!
 
 ---
 
-📄 License
+### 📄 License
 
-This project is open-sourced under the MIT License.
+This project is licensed under the **MIT License** — you are free to use, modify, and distribute it with attribution.
+
+See the full license here: [LICENSE](LICENSE)
