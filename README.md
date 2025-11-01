@@ -17,15 +17,6 @@ Designed for fun Q&A interactions — perfect for quizzes, surveys, and onboardi
 
 ---
 
-## 📸 Demo UI
-
-Swipe through cards like this 👇  
-(Replace this with your screenshots/gifs)
-
-
-
----
-
 ## 🧩 Tech Stack
 
 - **Kotlin**
@@ -91,6 +82,8 @@ Add network support for dynamic questions
 🏆 Quiz scoring & progress indicator
 
 🎨 More beautiful card themes + dark mode
+
+---
 
 🤝 Contributing
 
